@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Hospital's Database Client</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+        }
+
+        .background {
+            background: #333;
+            background-blend-mode: darken;
+            background-size: cover;
+        }
+
+        .nav-list {
+            width: 70%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 180px;
+            border-radius: 50px;
+        }
+
+        .nav-list li {
+            list-style: none;
+            padding: 26px 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+
+        }
+
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-list li a:hover {
+            color: grey;
+        }
+
+        .rightnav {
+            width: 30%;
+            text-align: right;
+        }
+
+        #search {
+            padding: 5px;
+            font-size: 17px;
+            border: 2px solid grey;
+            border-radius: 9px;
+        }
+
+        .firstsection {
+            background-color: bisque;
+            height: 400px;
+        }
+
+        .secondsection {
+            background-color: bisque;
+            height: 400px;
+        }
+
+        .box-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            max-width: 80%;
+            margin: auto;
+            height: 80%;
+        }
+
+        .firsthalf {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .secondhalf {
+            width: 30%;
+        }
+
+        .secondhalf img {
+            width: 70%;
+            border: 4px solid bisque;
+            border-radius: 150px;
+            display: block;
+            margin: auto;
+        }
+
+        .text-big {
+            font-family: 'Piazzolla', serif;
+            font-weight: bold;
+            font-size: 35px;
+        }
+
+        .text-small {
+            font-size: 18px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            margin: 7px 0;
+            border: 2px solid white;
+            border-radius: 8px;
+            background: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-sm {
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .section {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90%;
+            margin: auto;
+        }
+
+        .section-Left {
+            flex-direction: row-reverse;
+        }
+
+        .paras {
+            padding: 0px 65px;
+        }
+
+
+
+        .center {
+            text-align: center;
+        }
+
+        .text-footer {
+            text-align: center;
+            padding: 30px 0;
+            font-family: 'Ubuntu', sans-serif;
+            display: flex;
+            justify-content: center;
+            color: white;
+        }
+
+        .topnav {
+            position: relative;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a.active {
+
+            color: white;
+        }
+
+        /* Centered section inside the top navigation */
+        .topnav-centered a {
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Right-aligned section inside the top navigation */
+        .topnav-right {
+            float: right;
+        }
+
+        /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+        @media screen and (max-width: 600px) {
+
+            .topnav a,
+            .topnav-right {
+                float: none;
+                display: block;
+            }
+
+            .topnav-centered a {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top navigation -->
+    <div class="topnav">
+
+        <!-- Centered link -->
+        <div class="topnav-centered">
+            <a href="/" class="active">Home</a>
+        </div>
+
+        <!-- Left-aligned links (default) -->
+        <a href="/patients">Patients</a>
+        <a href="/doctors">Doctors</a>
+
+        <!-- Right-aligned links -->
+        <div class="topnav-right">
+            <a href="/appointment">Appointment</a>
+            <a href="#">PlaceHolder</a>
+        </div>
+
+    </div>
+
+    <section class="firstsection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-dark">
+                        Print The Data
+                    </a>
+                    <a href="/patients" class="list-group-item list-group-item-action">Patients</a>
+                    <a href="/doctors" class="list-group-item list-group-item-action">Doctors</a>
+                    <a href="/appointment" class="list-group-item list-group-item-action">Appointments</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="secondsection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-dark">
+                        Add Data
+                    </a>
+                    <a href="/addpat" class="list-group-item list-group-item-action">Add Patients</a>
+                    <a href="/adddoc" class="list-group-item list-group-item-action">Add Doctors</a>
+                    <a href="/addappt" class="list-group-item list-group-item-action">Add Appointments</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="background">
+        <p class="text-footer">
+            Copyright ©-All rights are reserved to Ramez :)
+        </p>
+    </footer>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
