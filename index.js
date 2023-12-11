@@ -73,8 +73,8 @@ const AppointmentSchema = {
 }
 
 const Appt = connection.define('appt', AppointmentSchema, { timestamps: false, freezeTableName: true });
-//Pat.belongsTo(Appt, { foreignKey: 'id' })
-//Doc.belongsTo(Appt, { foreignKey: 'id' })
+//Pat.belongsTo(Appt, { foreignKey: 'Pat_id' })
+//Doc.belongsTo(Appt, { foreignKey: 'Doc_id' })
 
 connection.sync();
 //connection.sync({ alter: true })
@@ -95,9 +95,15 @@ app.get('/patients', (req, res) => {
 
 });
 
-//app.get('/patients/:id',(req,res)=>{
-//Pat.findOne()
-//})
+app.get('/patients/:id', (req, res)=>{
+    Pat.findOne({where: {id: req.params.id}})
+      .then((result)=>{
+          res.send(result);
+      })
+      .catch((err)=>{
+          console.log(err);
+      })
+  });
 
 app.get('/addpat', (req, res) => {
     res.render('addpat');
@@ -148,6 +154,15 @@ app.get('/doctors', (req, res) => {
         })
 
 });
+app.get('/doctors/:id', (req, res)=>{
+    Doc.findOne({where: {id: req.params.id}})
+      .then((result)=>{
+          res.send(result);
+      })
+      .catch((err)=>{
+          console.log(err);
+      })
+  });
 
 app.get('/adddoc', (req, res) => {
     res.render('adddoc');
@@ -200,7 +215,15 @@ app.get('/appointment', (req, res) => {
             console.log(err);
         })
 })
-
+app.get('/appointment/:id', (req, res)=>{
+    Appt.findOne({where: {id: req.params.id}})
+      .then((result)=>{
+          res.send(result);
+      })
+      .catch((err)=>{
+          console.log(err);
+      })
+  });
 app.get('/addappt', (req, res) => {
     res.render('addappt')
 })
@@ -239,20 +262,8 @@ app.get('/deleteappt/:id', (req, res) => {
         });
 });
 
-
-
-
-
-
-
-
-
-
-
 //
 app.listen(8080, () => {
     console.log("Server is running on port 8080");
 
-})
-
-
+});
